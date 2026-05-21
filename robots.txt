@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /freepdfshoot/
+Allow: /freepdfshoot/index.html
+Allow: /freepdfshoot/app.html
+Allow: /freepdfshoot/manifest.json
+Allow: /freepdfshoot/sw.js
+Allow: /freepdfshoot/screenshots/
+Disallow: /freepdfshoot/docs/
+Sitemap: https://alan80dig.github.io/freepdfshoot/sitemap.xml
