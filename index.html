@@ -6,25 +6,49 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="/freepdfshoot/manifest.json">
-    <title>FreePDFShoot – Приватный PDF-сканер</title>
+
+    <!-- SEO Meta Tags -->
+    <title>FreePDFShoot – Бесплатный приватный PDF-сканер | Работает в браузере</title>
+    <meta name="description" content="Бесплатный приватный PDF-сканер без серверов и регистрации. Сфоткайте документ, обрежьте и отправьте PDF. Работает офлайн прямо в браузере.">
+    <meta name="keywords" content="PDF сканер, бесплатный сканер документов, приватный сканер, скан в PDF, браузерный сканер, free PDF scanner, private document scanner, convert photo to PDF, PWA scanner, offline scanner">
+    <meta name="author" content="alan80dig">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="FreePDFShoot – Бесплатный приватный PDF-сканер">
+    <meta property="og:description" content="Сфоткайте документ, обрежьте и отправьте PDF. Без серверов, без регистрации, без сливов. Работает офлайн.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alan80dig.github.io/freepdfshoot/">
+    <meta property="og:image" content="https://alan80dig.github.io/freepdfshoot/screenshots/startwindow.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FreePDFShoot – Бесплатный приватный PDF-сканер">
+    <meta name="twitter:description" content="Сфоткайте документ, обрежьте и отправьте PDF. Без серверов, без регистрации, без сливов.">
+    <meta name="twitter:image" content="https://alan80dig.github.io/freepdfshoot/screenshots/startwindow.jpg">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://alan80dig.github.io/freepdfshoot/">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { width: 100%; overflow-x: hidden; background: #284028; color: #a8c8a8; font-family: system-ui, -apple-system, sans-serif; }
         body { display: flex; flex-direction: column; align-items: center; }
-
         .container { max-width: 800px; width: 100%; padding: 0 16px; }
 
         .mobile-hint { text-align: center; padding: 12px 0 0; font-size: 0.7rem; color: #809880; }
-        .mobile-hint span { display: inline-block; background: rgba(76,175,80,0.12); color: #4caf50; padding: 4px 10px; border-radius: 10px; margin-right: 4px; }
+        .mobile-hint span { display: inline-block; background: rgba(255,170,0,0.15); color: #ffaa00; padding: 4px 10px; border-radius: 10px; margin-right: 4px; }
 
         .hero { text-align: center; padding: 40px 0 30px; }
         .hero .badge { display: inline-block; background: rgba(76,175,80,0.12); color: #4caf50; font-size: 0.75rem; font-weight: 600; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; letter-spacing: 0.04em; }
         .hero h1 { font-size: 2.2rem; font-weight: 700; color: #d0e8d0; margin-bottom: 12px; line-height: 1.2; }
-        .hero .sub { font-size: 1rem; color: #a8c8a8; margin-bottom: 32px; line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .hero .sub { font-size: 1rem; color: #a8c8a8; margin-bottom: 12px; line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .hero .mobile-warning { background: rgba(255,170,0,0.15); color: #ffaa00; display: inline-block; padding: 8px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; }
         .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
         .btn { display: inline-block; padding: 14px 28px; font-size: 1rem; font-weight: 600; border: none; border-radius: 14px; cursor: pointer; text-decoration: none; color: #fff; background: #4caf50; transition: 0.2s; }
         .btn:active { opacity: 0.85; }
         .btn.outline { background: transparent; border: 2px solid #4caf50; color: #4caf50; }
+        .btn.donate { background: #ff6b6b; font-size: 0.9rem; }
 
         .trust { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 0 0 35px; font-size: 0.75rem; color: #809880; }
         .trust span { display: flex; align-items: center; gap: 5px; }
@@ -57,6 +81,16 @@
         .setup ol { color: #809880; font-size: 0.8rem; line-height: 2; padding-left: 20px; margin: 0; }
         .setup ol li strong { color: #d0e8d0; }
 
+        /* FAQ */
+        .faq { max-width: 650px; margin: 0 auto 45px; }
+        .faq-item { background: #2e482e; border-radius: 16px; padding: 20px; margin-bottom: 12px; border: 1px solid #3a5a3a; }
+        .faq-item h3 { font-size: 0.95rem; color: #d0e8d0; margin-bottom: 8px; }
+        .faq-item p { font-size: 0.8rem; color: #a8c8a8; line-height: 1.5; }
+
+        /* SEO Text */
+        .seo-text { max-width: 650px; margin: 0 auto 30px; font-size: 0.8rem; color: #809880; line-height: 1.6; text-align: center; }
+        .seo-text strong { color: #a8c8a8; }
+
         .cta { text-align: center; padding: 30px 0 40px; }
         .cta h2 { font-size: 1.5rem; color: #d0e8d0; margin-bottom: 10px; }
         .cta p { font-size: 0.9rem; color: #a8c8a8; margin-bottom: 24px; }
@@ -69,24 +103,59 @@
         .footer { text-align: center; padding: 25px 0 20px; font-size: 0.75rem; color: #809880; border-top: 1px solid #3a5a3a; }
         .footer a { color: #4caf50; text-decoration: none; }
     </style>
+
+    <!-- Schema.org FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is FreePDFShoot safe to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. All processing happens directly in your browser. No documents are uploaded to any server. Everything stays on your device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use FreePDFShoot offline?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Once the page is loaded, you can turn off the internet and still scan documents. It works as a Progressive Web App (PWA)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is FreePDFShoot really free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. FreePDFShoot is completely free, open-source, and has no ads. You can use it without any registration or payment."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
 <div class="container">
 
     <div class="mobile-hint">
-        <span>📱 Оптимизировано для телефона</span> Откройте на смартфоне для лучшего опыта
+        <span>📱 Работает только на смартфоне</span> Откройте на телефоне для сканирования
     </div>
 
-     <div class="hero">
+    <div class="hero">
         <div class="badge">🔒 100% ПРИВАТНОСТЬ</div>
-        <h1>Твой карманный<br>PDF-сканер</h1>
-        <div class="sub">Сфоткай документ, обрежь лишнее и отправь PDF — и всё это <strong style="color:#d0e8d0;">без серверов, без регистрации, без сливов</strong>. Ни один байт не покинет телефон.</div>
-        <div style="background: rgba(255,170,0,0.15); color: #ffaa00; display: inline-block; padding: 8px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
-            📱 Откройте на смартфоне — инструмент работает только с камерой телефона
-        </div>
+        <h1>FreePDFShoot<br>Приватный PDF-сканер</h1>
+        <div class="sub">Сфоткайте документ, обрежьте лишнее и отправьте PDF — и всё это <strong style="color:#d0e8d0;">без серверов, без регистрации, без сливов</strong>. Ни один байт не покинет телефон.</div>
+        <div class="mobile-warning">📱 Инструмент работает только с камерой смартфона</div>
         <div class="hero-buttons">
             <a class="btn" href="/freepdfshoot/app.html">🚀 Запустить</a>
             <button class="btn outline" id="installBtn" onclick="installPWA()" style="display:none;">📲 Установить</button>
+        </div>
+        <div style="margin-top: 16px;">
+            <a class="btn donate" href="https://www.sberbank.ru/ru/choise_bank?requisiteNumber" target="_blank">❤️ Поддержать через СБП</a>
         </div>
     </div>
 
@@ -100,57 +169,63 @@
     <div class="section-title">Как это работает</div>
     <div class="section-sub">Три простых шага — и PDF готов к отправке</div>
     <div class="steps">
-        <div class="step">
-            <div class="icon">📸</div>
-            <h3>Снял</h3>
-            <p>Системная камера — идеальное качество, автофокус, вспышка</p>
-        </div>
-        <div class="step">
-            <div class="icon">✂️</div>
-            <h3>Обрезал</h3>
-            <p>Расставь маркеры по углам — и обрежь лишнее</p>
-        </div>
-        <div class="step">
-            <div class="icon">📤</div>
-            <h3>Отправил</h3>
-            <p>Многостраничный PDF через любое приложение</p>
-        </div>
+        <div class="step"><div class="icon">📸</div><h3>Снял</h3><p>Системная камера — идеальное качество, автофокус, вспышка</p></div>
+        <div class="step"><div class="icon">✂️</div><h3>Обрезал</h3><p>Расставь маркеры по углам — и обрежь лишнее</p></div>
+        <div class="step"><div class="icon">📤</div><h3>Отправил</h3><p>Многостраничный PDF через любое приложение</p></div>
     </div>
 
     <div class="section-title">Как выглядит</div>
     <div class="section-sub">Чистый, быстрый, без лишнего</div>
     <div class="screenshots">
-        <div class="shot"><img src="screenshots/startwindow.jpg" alt="Главный экран"><div class="caption">Главный экран</div></div>
-        <div class="shot"><img src="screenshots/trimming.jpg" alt="Обрезка"><div class="caption">Обрезка документа</div></div>
-        <div class="shot"><img src="screenshots/saveviewer.jpg" alt="Предпросмотр"><div class="caption">Предпросмотр</div></div>
-        <div class="shot"><img src="screenshots/forward.jpg" alt="Отправка"><div class="caption">Отправка PDF</div></div>
+        <div class="shot"><img src="screenshots/startwindow.jpg" alt="Главный экран FreePDFShoot"><div class="caption">Главный экран</div></div>
+        <div class="shot"><img src="screenshots/trimming.jpg" alt="Обрезка документа"><div class="caption">Обрезка документа</div></div>
+        <div class="shot"><img src="screenshots/saveviewer.jpg" alt="Предпросмотр PDF"><div class="caption">Предпросмотр</div></div>
+        <div class="shot"><img src="screenshots/forward.jpg" alt="Отправка PDF"><div class="caption">Отправка PDF</div></div>
     </div>
 
     <div class="section-title">Твои документы — только твои</div>
     <div class="section-sub">Никто, кроме тебя, не увидит твои сканы</div>
     <div class="security">
-        <div class="security-item">
-            <div class="icon">🔒</div>
-            <h4>Всё на устройстве</h4>
-            <p>Ни один байт не покидает телефон. Все вычисления — в браузере.</p>
+        <div class="security-item"><div class="icon">🔒</div><h4>Всё на устройстве</h4><p>Ни один байт не покидает телефон. Все вычисления — в браузере.</p></div>
+        <div class="security-item"><div class="icon">📱</div><h4>Исчезает при закрытии</h4><p>Документы хранятся только в памяти браузера. Закрыл вкладку — всё исчезло.</p></div>
+        <div class="security-item"><div class="icon">☁️</div><h4>Никаких облаков</h4><p>Без регистраций, без подписок, без загрузки на чужие серверы.</p></div>
+    </div>
+
+    <!-- FAQ для SEO -->
+    <div class="section-title">Часто задаваемые вопросы</div>
+    <div class="section-sub">Всё, что нужно знать о FreePDFShoot</div>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>🔒 Это безопасно? Мои документы куда-то отправляются?</h3>
+            <p>Нет. Все вычисления происходят прямо в вашем браузере. Ни один файл не загружается на сервер. Документы хранятся только в памяти браузера и исчезают при закрытии вкладки.</p>
         </div>
-        <div class="security-item">
-            <div class="icon">📱</div>
-            <h4>Исчезает при закрытии</h4>
-            <p>Документы хранятся только в памяти браузера. Закрыл вкладку — всё исчезло.</p>
+        <div class="faq-item">
+            <h3>📴 Можно ли использовать без интернета?</h3>
+            <p>Да. FreePDFShoot работает как Progressive Web App (PWA). После первой загрузки вы можете отключить интернет и продолжать сканировать документы.</p>
         </div>
-        <div class="security-item">
-            <div class="icon">☁️</div>
-            <h4>Никаких облаков</h4>
-            <p>Без регистраций, без подписок, без загрузки на чужие серверы.</p>
+        <div class="faq-item">
+            <h3>💸 Это действительно бесплатно?</h3>
+            <p>Да. FreePDFShoot — бесплатный, открытый проект без рекламы и скрытых платежей. Вы можете поддержать разработку через кнопку донатов, но это полностью добровольно.</p>
         </div>
+        <div class="faq-item">
+            <h3>📱 Почему работает только на смартфоне?</h3>
+            <p>Инструмент использует системную камеру телефона для съёмки документов. На десктопе камера может отсутствовать или давать низкое качество. Мы рекомендуем открывать FreePDFShoot на мобильном устройстве.</p>
+        </div>
+    </div>
+
+    <!-- SEO Text -->
+    <div class="seo-text">
+        <strong>FreePDFShoot</strong> — это бесплатный приватный PDF-сканер, работающий прямо в браузере. 
+        <strong>Free online PDF scanner</strong> without servers, registration, or ads. 
+        Convert photo to PDF offline with <strong>private document scanner</strong> that respects your privacy.
+        Лучшая <strong>бесплатная замена CamScanner</strong> без регистрации и сливов.
     </div>
 
     <div class="section-title">Если камера не включается</div>
     <div class="section-sub">Обычно браузер спрашивает сам, но если нет — вот решение</div>
     <div class="setup">
         <div class="setup-inner">
-            <img src="screenshots/browsersettings.jpg" alt="Настройки браузера">
+            <img src="screenshots/browsersettings.jpg" alt="Настройки браузера FreePDFShoot">
             <div class="setup-text">
                 <p>Браузеру нужно разрешение на доступ к камере. Это делается один раз:</p>
                 <ol>
@@ -170,10 +245,16 @@
         <a class="btn" href="/freepdfshoot/app.html">🚀 Запустить бесплатно</a>
     </div>
 
-   
+    <div class="support">
+        <p>Нравится проект? Поддержи автора ❤️</p>
+        <a href="https://www.sberbank.ru/ru/choise_bank?requisiteNumber" target="_blank" class="btn donate" style="display:inline-block;margin-bottom:12px;">❤️ Поддержать через СБП</a>
+        <br>
+        <a href="https://www.buymeacoffee.com/alan80dig" target="_blank" style="color:#ffaa00;font-size:0.85rem;">☕ Buy Me a Coffee (for international users)</a>
+    </div>
+
     <div class="footer">
         Бесплатно. Навсегда. Без рекламы.<br>
-        <a href="https://github.com/alan80dig/freepdfshoot" target="_blank">GitHub</a> • MIT License
+        <a href="https://github.com/alan80dig/freepdfshoot" target="_blank">GitHub</a> • MIT License • <a href="https://alan80dig.github.io/freepdfshoot/app.html">Open App</a>
     </div>
 
 </div>
